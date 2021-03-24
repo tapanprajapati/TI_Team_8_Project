@@ -1,0 +1,64 @@
+<!--
+  @author Parth Parmar <parth.parmar@default.ca>
+-->
+<section class="products container mt-5 mb-5">
+  <div class="row">
+    <div class="col-md-12">
+      <h1>Products</h1>
+      <div class="w-100 d-flex justify-content-between align-items-center mt-2 mb-2 app-form flex-wrap">
+        <mat-form-field class="item-search" fxFlex.lt-sm="100%">
+          <input
+            type="text"
+            matInput
+            placeholder="Search Products by name......"
+            autocomplete="off"
+            (keydown.enter)="filterProductsByName(searchedProduct)"
+            [(ngModel)]="searchedProduct"
+          />
+          <button mat-button matSuffix mat-icon-button (click)="filterProductsByName(searchedProduct)">
+            <fa-icon [icon]="faSearch"></fa-icon>
+          </button>
+        </mat-form-field>
+        <mat-form-field fxFlex.lt-sm="100%">
+          <mat-label>Categories</mat-label>
+          <mat-select [formControl]="categoryControl" (openedChange)="categorySelectionToggled($event)" multiple>
+            <mat-option *ngFor="let category of categories" [value]="category.id">{{ category.name }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="w-100 d-flex justify-content-end mb-4" [@slideToBottom] *ngIf="categoryControl.value?.length > 0">
+        <a class="reset-link clear-all" (click)="resetProducts()">CLEAR ALL</a>
+      </div>
+      <div class="row d-flex flex-column align-items-center" *ngIf="filteredProducts?.length === 0">
+        <picture class="col-md-6">
+          <img src="./../../assets/media/no-results.png" class="no-results-img" />
+        </picture>
+        <div class="col-md-6 text-center no-results-text">No Products Found...</div>
+        <div class="col-md-6 text-center">
+          <a class="reset-link" (click)="resetProducts()">Reset All Filters</a>
+        </div>
+      </div>
+      <div class="grid w-100">
+        <mat-card
+          class="d-flex flex-column"
+          *ngFor="let product of filteredProducts"
+          (click)="goToProductDetails(product.id)"
+        >
+          <img src="{{ product?.imagePath | async }}" mat-card-image class="product-img app-image-load" />
+          <mat-card-content class="pl-3 pr-3 pt-3 mt-a">
+            <h6 class="font-weight-bold">{{ product?.name }}</h6>
+            <small class="">{{ product?.category?.name }}</small>
+          </mat-card-content>
+          <mat-card-actions class="pl-3 pb-3 pr-3">
+            <button mat-stroked-button class="w-100" (click)="addToCart(product, $event)">ADD TO CART</button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</section>
+<app-loader [isLoading]="isLoading" [size]="5"></app-loader>
+
+<!-- REF: 
+  No Result Found Image - https://dribbble.com/shots/4020070-Scribd-No-Search-Results-Found 
+-->
