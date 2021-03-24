@@ -33,4 +33,32 @@ export class SignUpComponent implements OnInit, OnDestroy {
     this.loadRoles();
   }
   ngOnDestroy() {}
+  signup() {
+    try {
+      if (this.signupForm.valid) {
+        // Call service to add the user
+        this.Signup_Service.addUser(this.signupForm.value).subscribe(
+          (res) => {
+            const dialogConfig = this._matDialogConfig;
+            dialogConfig.data = { header: 'Success!', content: 'User added successfully.' };
+            this._matDialog.open(MatDialogWrapperComponent, dialogConfig);
+            this.router.navigate(['/login']);
+          },
+          (error) => {
+            const dialogConfig = this._matDialogConfig;
+            if (error.error.message) {
+              dialogConfig.data = { header: 'Failure!', content: error.error.message };
+            } else {
+              dialogConfig.data = { header: 'Resource Error!', content: 'Please try after some time.' };
+            }
+            this._matDialog.open(MatDialogWrapperComponent, dialogConfig);
+          }
+        );
+      }
+    } catch (e) {
+      const dialogConfig = this._matDialogConfig;
+      dialogConfig.data = { header: 'Failure!', content: 'Error Occured.' };
+      this._matDialog.open(MatDialogWrapperComponent, dialogConfig);
+    }
+  }
 }
