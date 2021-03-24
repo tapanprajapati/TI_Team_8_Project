@@ -1,0 +1,132 @@
+<section class="container-fluid signup-container">
+  <div class="row justify-content-center">
+    <div fxHide.lt-md class="col-md-7">
+      <picture>
+        <img class="app-signup-img" alt="signup page image" src="./../../assets/media/app-signup.jpg" />
+      </picture>
+    </div>
+    <div class="col-md-5 col-sm-12 d-flex flex-column justify-content-center">
+      <mat-card class="signup-card mt-4 mb-4 mat-elevation-z16">
+        <mat-card-header class="p-4">
+          <mat-card-title>{{ 'Signup' | uppercase }}</mat-card-title>
+        </mat-card-header>
+        <mat-divider></mat-divider>
+        <mat-card-content class="p-4 pt-4 pb-4">
+          <form class="col-lg-9 col-md-12 app-form" autocomplete="off" [formGroup]="signupForm" (ngSubmit)="signup()">
+            <mat-form-field class="w-100">
+              <mat-label>First Name</mat-label>
+              <input
+                matInput
+                type="text"
+                placeholder="Enter First Name"
+                [formControl]="firstName"
+                autocomplete="off"
+                required
+              />
+              <mat-error *ngIf="firstName.hasError('required')">Please enter your firstname.</mat-error>
+            </mat-form-field>
+            <mat-form-field class="w-100">
+              <mat-label>Last Name</mat-label>
+              <input
+                matInput
+                type="text"
+                placeholder="Enter Last Name"
+                [formControl]="lastName"
+                autocomplete="off"
+                required
+              />
+              <mat-error *ngIf="lastName.hasError('required')">Please enter your lastname.</mat-error>
+            </mat-form-field>
+            <mat-form-field class="w-100">
+              <mat-label>Phone number</mat-label>
+              <input
+                matInput
+                type="text"
+                placeholder="Enter Phone Number"
+                [formControl]="phone"
+                autocomplete="off"
+                required
+              />
+              <mat-error *ngIf="phone.hasError('required') && !phone.hasError('pattern')"
+                >Phone Number is required.</mat-error
+              >
+              <mat-error *ngIf="!phone.hasError('required') && phone.hasError('pattern')"
+                >Enter valid Phone Number</mat-error
+              >
+            </mat-form-field>
+
+            <mat-form-field class="w-100">
+              <mat-label>Email Address</mat-label>
+              <input
+                matInput
+                type="email"
+                placeholder="Enter email address"
+                [formControl]="email"
+                autocomplete="off"
+                required
+              />
+              <mat-error *ngIf="email.hasError('required') && !email.hasError('email')"
+                >Please enter your email address.</mat-error
+              >
+              <mat-error *ngIf="!email.hasError('required') && email.hasError('email')"
+                >Please enter a valid email address.</mat-error
+              >
+            </mat-form-field>
+            <mat-form-field class="w-100">
+              <mat-label>Password</mat-label>
+              <input
+                matInput
+                type="password"
+                placeholder="Create a password"
+                [formControl]="password"
+                autocomplete="off"
+                required
+              />
+              <mat-error *ngIf="password.hasError('required') && !password.hasError('pattern')"
+                >Please enter password.</mat-error
+              >
+              <mat-error *ngIf="!password.hasError('required') && password.hasError('pattern')"
+                >Password should contain one uppercase, one lowercase, one number, one symbol, and should be of 8 to 12
+                characters long.</mat-error
+              >
+            </mat-form-field>
+            <mat-form-field class="w-100">
+              <mat-label>Confirm Password</mat-label>
+              <input
+                matInput
+                type="password"
+                placeholder="Enter a confirm password"
+                [formControl]="confirm_password"
+                autocomplete="off"
+                required
+              />
+              <mat-error
+                *ngIf="confirm_password.hasError('required') && !confirm_password.hasError('confirmedValidator')"
+                >Please enter password.</mat-error
+              >
+              <mat-error
+                *ngIf="!confirm_password.hasError('required') && confirm_password.hasError('confirmedValidator')"
+              >
+                Password and Confirm Password must be same.
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+              <mat-label>Role</mat-label>
+              <mat-select [formControl]="role" [value]="roles[0].id" single required>
+                <mat-option *ngFor="let role of roles" [value]="role.id">{{ role.name }}</mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <div class="w-100 d-flex pt-4">
+              <button class="app-primary-btn w-100" [disabled]="!signupForm.valid" type="submit" mat-button>
+                SIGNUP
+              </button>
+              <button routerLink="/login" class="w-100" type="button" mat-button>LOGIN</button>
+            </div>
+          </form>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</section>
