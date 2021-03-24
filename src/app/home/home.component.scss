@@ -1,14 +1,51 @@
-.container {
-  text-align: center;
-  padding: 1em;
+@import "base/variables";
+@import "base/colors";
+
+.app {
+  &-landing-img {
+    width: inherit;
+    height: inherit;
+    background-color: $img-background-color;
+    background-image: url("https://images.unsplash.com/photo-1593113630400-ea4288922497?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MXx8Zm9vZCUyMGRvbmF0aW9ufGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60");
+  }
 }
 
-.logo {
-  width: 150px;
-  margin: 0 auto;
+.content {
+  padding: 16px;
 }
 
-q {
-  font-style: italic;
-  quotes: "« " " »";
+.content > mat-card {
+  width: 200px;
+}
+
+.blog-header {
+  line-height: 1;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.blog-header-logo {
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+  font-size: 2.25rem;
+}
+
+.blog-header-logo:hover {
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+}
+
+.display-4 {
+  font-size: 2.5rem;
+}
+@media (min-width: 768px) {
+  .display-4 {
+    font-size: 3rem;
+  }
 }
