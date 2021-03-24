@@ -87,4 +87,24 @@ export class SignUpComponent implements OnInit, OnDestroy {
   get confirm_password() {
     return this.signupForm.controls.confirm_password;
   }
+
+  private _createSignupForm() {
+    this.signupForm = this.formBuilder.group(
+      {
+        phone: ['', [Validators.required, Validators.pattern('^([0-9]){10}$')]],
+        firstName: ['', Validators.required],
+        lastName: ['', Validators.required],
+        email: ['', [Validators.required, Validators.email]],
+        password: [
+          '',
+          [Validators.required, Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$')],
+        ],
+        confirm_password: ['', Validators.required],
+        role: ['', Validators.required],
+      },
+      {
+        validator: ConfirmedValidator('password', 'confirm_password'),
+      }
+    );
+  }
 }
