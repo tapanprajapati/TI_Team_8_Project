@@ -1,3 +1,83 @@
-<p>
-  pickup works!
-</p>
+<section class="container-fluid signup-container">
+  <div class="row justify-content-center">
+    <div fxHide.lt-md class="col-md-6">
+    </div>
+    <div class="col-md-6 col-sm-12 d-flex flex-column justify-content-center">
+      <mat-card class="signup-card mt-4 mb-4 mat-elevation-z16">
+        <mat-card-header class="p-4">
+          <mat-card-title>{{ 'Donate Now' | uppercase }}</mat-card-title>
+        </mat-card-header>
+        <mat-divider></mat-divider>
+        <mat-card-content class="p-4 pt-4 pb-4">
+          <form class="col-lg-12 col-md-12 app-form" autocomplete="off" [formGroup]="pickupForm" (ngSubmit)="pickup()">
+            <mat-form-field class="w-100">
+              <mat-label>Name</mat-label>
+              <input matInput type="text" placeholder="Enter Name" [formControl]="name" autocomplete="off" />
+            </mat-form-field>
+
+            <mat-form-field class="w-100">
+              <mat-label>Address 1</mat-label>
+              <input matInput type="text" placeholder="Enter Address 1" [formControl]="address1" autocomplete="off" />
+
+            </mat-form-field>
+            <mat-form-field class="w-100">
+              <mat-label>Address 2</mat-label>
+              <input matInput type="text" placeholder="Enter Address 2" [formControl]="address2" autocomplete="off" />
+            </mat-form-field>
+            <div class="row">
+              <div class="col-md-3">
+                <mat-form-field class="w-100">
+                  <mat-label>Zip Code</mat-label>
+                  <input matInput type="text" placeholder="Enter ZipCode" [formControl]="zipcode" autocomplete="off" />
+                </mat-form-field>
+              </div>
+              <div class="col-md-9">
+                <mat-form-field class="w-100">
+                  <mat-label>Phone number</mat-label>
+                  <input
+                    matInput
+                    type="text"
+                    placeholder="Enter Phone Number"
+                    [formControl]="phone"
+                    autocomplete="off"
+                  />
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <mat-form-field class="w-100">
+                  <mat-label>Choose a pickup date</mat-label>
+                  <input
+                    matInput
+                    type="date"
+                    placeholder="Choose pickup date"
+                    min="{{ currentDate | date: 'yyyy-MM-dd' }}"
+                    [formControl]="pickupslot"
+                    required
+                  />
+                </mat-form-field>
+              </div>
+              <div class="col-md-6">
+                <mat-form-field class="w-100">
+                  <mat-label>Choose a pickup time</mat-label>
+                  <input matInput type="time" placeholder="Choose a pickup time" [formControl]="pickupTime" required />
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="w-100 d-flex pt-4">
+              <button class="app-primary-btn" (click)="openAddDialog()" type="button" style="margin: auto;" mat-button>
+                Add New Product
+              </button>
+            </div>
+            <div class="w-100 d-flex pt-4">
+              <button class="app-primary-btn w-100" type="submit" mat-button>
+                Donate Now
+              </button>
+            </div>
+          </form>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</section>
