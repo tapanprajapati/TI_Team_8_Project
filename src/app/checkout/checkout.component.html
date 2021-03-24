@@ -1,0 +1,157 @@
+<!-- /**
+* @author Samkit Shah <samkit@dal.ca>
+*/ -->
+<section>
+    <div class="row justify-content-center">
+      <div fxHide.lt-md class="col-md-7">
+        <mat-card class="signup-card mt-4 mb-4 mat-elevation-z16">
+          <mat-card-header class="p-4">
+            <mat-card-title>{{ 'List of products' | uppercase }}</mat-card-title>
+          </mat-card-header>
+          <mat-divider></mat-divider>
+  
+          <div
+            class="d-flex mb-4 pb-4 cart-item-border"
+            *ngFor="let cartItem of cartItems"
+            fxLayout.lt-md="column"
+            fxLayout.gt-md="row"
+          >
+            <img
+              class="cart-item-img"
+              width="150"
+              height="100"
+              src="{{ cartItem?.imagePath | async }}"
+              alt="cart item image"
+            />
+            <div class="card-body">
+              <div fxLayout="row" fxLayoutAlign="space-between center" class="h-100">
+                <div>
+                  <div class="font-weight-bold">{{ cartItem?.name }}</div>
+                  <small>{{ cartItem?.category?.name }}</small>
+                </div>
+                <div>
+                  <div>Quantity</div>
+                  <small>{{ cartItem?.limit }}</small>
+                </div>
+                <div>
+                  <button mat-button class="app-danger-btn cart-remove" (click)="deleteProductFromCart(cartItem)">
+                    Remove
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </mat-card>
+      </div>
+      <div class="col-md-5 col-sm-12 d-flex flex-column justify-content-center">
+        <mat-card class="signup-card mt-4 mb-4 mat-elevation-z16">
+          <mat-card-header class="p-4">
+            <mat-card-title>{{ 'Pickup Details' | uppercase }}</mat-card-title>
+          </mat-card-header>
+          <mat-divider></mat-divider>
+          <mat-card-content class="p-4 pt-4 pb-4">
+            <form
+              class="col-lg-9 col-md-12 app-form"
+              autocomplete="off"
+              [formGroup]="checkoutForm"
+              (ngSubmit)="checkout()"
+            >
+              <mat-form-field class="w-100">
+                <mat-label>Email Address:</mat-label>
+                <input
+                  matInput
+                  type="text"
+                  placeholder="Email Address:"
+                  [formControl]="email"
+                  autocomplete="off"
+                  required
+                  readonly
+                />
+              </mat-form-field>
+              <mat-form-field class="w-100">
+                <mat-label>First Name</mat-label>
+                <input
+                  matInput
+                  type="text"
+                  placeholder="Enter First Name"
+                  [formControl]="firstName"
+                  autocomplete="off"
+                  required
+                />
+                <mat-error *ngIf="firstName.hasError('required')">Please enter your firstname.</mat-error>
+              </mat-form-field>
+              <mat-form-field class="w-100">
+                <mat-label>Last Name</mat-label>
+                <input
+                  matInput
+                  type="text"
+                  placeholder="Enter Last Name"
+                  [formControl]="lastName"
+                  autocomplete="off"
+                  required
+                />
+                <mat-error *ngIf="lastName.hasError('required')">Please enter your lastname.</mat-error>
+              </mat-form-field>
+  
+              <mat-form-field class="w-100">
+                <mat-label>Contact Number</mat-label>
+                <input
+                  matInput
+                  type="text"
+                  placeholder="Enter contact number"
+                  [formControl]="contactNumber"
+                  autocomplete="off"
+                  required
+                />
+                <mat-error *ngIf="contactNumber.hasError('required') && !contactNumber.hasError('minlength')"
+                  >Please enter your contact number.</mat-error
+                >
+                <mat-error *ngIf="!contactNumber.hasError('required') && contactNumber.hasError('minlength')"
+                  >Please enter a valid contact number.</mat-error
+                >
+              </mat-form-field>
+  
+              <mat-form-field>
+                <mat-label>Choose a pickup date</mat-label>
+                <input
+                  matInput
+                  type="date"
+                  placeholder="Choose pickup date"
+                  min="{{ currentDate | date: 'yyyy-MM-dd' }}"
+                  [formControl]="pickupDate"
+                  required
+                />
+                <mat-error *ngIf="pickupDate.hasError('required') && !pickupDate.hasError('min')">
+                  Please choose a date.
+                </mat-error>
+                <mat-error *ngIf="!pickupDate.hasError('required') && pickupDate.hasError('min')">
+                  Please choose future date.
+                </mat-error>
+              </mat-form-field>
+  
+              <mat-form-field>
+                <mat-label>Choose a pickup time</mat-label>
+                <input matInput type="time" placeholder="Choose a pickup time" [formControl]="pickupTime" required />
+                <mat-error
+                  *ngIf="pickupTime.hasError('required') && !pickupTime.hasError('min') && !pickupTime.hasError('max')"
+                >
+                  Please choose a pickup time.
+                </mat-error>
+                <mat-error
+                  *ngIf="(!pickupTime.hasError('required') && pickupTime.hasError('min')) || pickupTime.hasError('min')"
+                >
+                  Please select time between 9AM to 6PM.
+                </mat-error>
+              </mat-form-field>
+              <div class="w-100 d-flex pt-4">
+                <button class="app-primary-btn w-100" [disabled]="!checkoutForm.valid" type="submit" mat-button>
+                  CHECKOUT
+                </button>
+              </div>
+            </form>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </section>
+  
