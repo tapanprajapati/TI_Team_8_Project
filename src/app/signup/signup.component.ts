@@ -61,4 +61,30 @@ export class SignUpComponent implements OnInit, OnDestroy {
       this._matDialog.open(MatDialogWrapperComponent, dialogConfig);
     }
   }
+
+  loadRoles() {
+    this.roles = this.Signup_Service.getAllroles();
+  }
+
+  get phone() {
+    return this.signupForm.controls.phone;
+  }
+  get firstName() {
+    return this.signupForm.controls.firstName;
+  }
+  get lastName() {
+    return this.signupForm.controls.lastName;
+  }
+  get email() {
+    return this.signupForm.controls.email;
+  }
+  get password() {
+    return this.signupForm.controls.password;
+  }
+  get role() {
+    return this.signupForm.controls.role;
+  }
+  get confirm_password() {
+    return this.signupForm.controls.confirm_password;
+  }
 }
