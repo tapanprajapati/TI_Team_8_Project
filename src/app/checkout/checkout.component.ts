@@ -1,6 +1,4 @@
-/**
- * @author Samkit Shah <samkit@dal.ca>
- */
+
  import { Injectable, OnDestroy } from '@angular/core';
  import { UserModel } from '../@core/model/user.model';
  import { RoleModel } from '../@core/model/role.model';
