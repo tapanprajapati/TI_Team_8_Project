@@ -1,0 +1,50 @@
+<!-- 
+  @author Tapan Prajapati <Tapan.Prajapati@dal.ca> 
+-->
+
+<section class="container">
+  <h1>Order Details</h1>
+  <hr />
+  <div class="order-details">
+    <div class="order-data">
+      <h6 class="font-weight-bold">Order #</h6>
+      <small>{{ order?.orderId }}</small>
+      <h6 class="font-weight-bold mt-3">Ordered on</h6>
+      <small>{{ order?.OrderDate | date }}</small>
+      <h6 class="font-weight-bold mt-3">Delivered Date</h6>
+      <small>{{ order?.DeliveredDate| date }}</small>
+      <h6 class="font-weight-bold mt-3">Pickup Slot</h6>
+      <small>{{ order?.PickUpSlot | date: 'MMM d, y, h:mm:ss a'}}</small>
+      <h6 class="font-weight-bold mt-3">Order Status</h6>
+      <mat-form-field fxFlex.lt-sm="100%" style="width: inherit">
+        <mat-select [formControl]="orderStatusControl" (selectionChange)="changeOrderStatus($event)">
+          <mat-option value="placed">Placed</mat-option>
+          <mat-option value="rejected">Rejected</mat-option>
+          <mat-option value="processing">Processing</mat-option>
+          <mat-option value="ready">Ready</mat-option>
+          <mat-option value="delivered">Delivered</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <hr />
+    <div class="order-items">
+      <div style="width: inherit">
+        <h6 class="mb-4 font-weight-bold">Items</h6>
+        <div class="card mat-elevation-z2 mb-4 flex-row" *ngFor="let orderItem of order?.item">
+          <img class="order-item-img" src="{{ orderItem?.imagePath | async }}" alt="product image" />
+          <div class="content-center">
+            <div class="pl-3 pr-3">
+              <div style="float: left">{{ orderItem.name }}</div>
+              <div style="float: right">X {{ orderItem?.quantity }}</div>
+            </div>
+            <small class="pl-1">({{ orderItem?.CategoryName }})</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="w-30" mat-dialog-actions>
+    <button class="app-primary-btn" style="margin: auto" mat-button mat-dialog-close>CLOSE</button>
+  </div>
+</section>
+<app-loader [isLoading]="isLoading" [size]="5"></app-loader>
