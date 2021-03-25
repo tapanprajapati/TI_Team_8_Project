@@ -1,18 +1,17 @@
 <section class="container-fluid signup-container">
   <div class="row justify-content-center">
     <div fxHide.lt-md class="col-md-6">
-
-        <div *ngIf="_Products.length === 0" fxHide.lt-md class="col-md-6">
-          <picture>
-            <img class="app-signup-img" alt="signup page image" src="./../../assets/media/donate.png" />
-          </picture>    
+      <div *ngIf="_Products.length === 0" fxHide.lt-md class="col-md-6">
+        <picture>
+          <img class="app-signup-img" alt="signup page image" src="./../../assets/media/donate.png" />
+        </picture>
       </div>
       <div *ngIf="_Products.length != 0" class="table-responsive d-flex flex-column mt-2">
         <mat-card-header class="p-4">
           <mat-card-title>{{ 'List Of Products' | uppercase }}</mat-card-title>
         </mat-card-header>
         <mat-divider></mat-divider>
-  
+
         <table mat-table [dataSource]="dataSource" matSort class="w-100">
           <ng-container matColumnDef="name">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
@@ -132,14 +131,12 @@
               </div>
             </div>
             <div class="w-100 d-flex pt-4">
-              <button class="app-primary-btn" (click)="openAddDialog()" type="button" style="margin: auto;" mat-button>
+              <button class="app-primary-btn" (click)="openAddDialog()" type="button" style="margin: auto" mat-button>
                 Add New Product
               </button>
             </div>
             <div class="w-100 d-flex pt-4">
-              <button class="app-primary-btn w-100" type="submit" mat-button>
-                Donate Now
-              </button>
+              <button class="app-primary-btn w-100" type="submit" mat-button>Donate Now</button>
             </div>
           </form>
         </mat-card-content>

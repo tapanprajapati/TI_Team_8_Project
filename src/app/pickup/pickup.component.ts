@@ -15,7 +15,7 @@ export interface DonateProduct {
   productName: string;
   category: string;
   quantity: number;
-}     
+}
 
 @Component({
   selector: 'app-pickup',
@@ -129,7 +129,7 @@ export class PickupComponent implements OnInit {
       name: [''],
       address1: ['', Validators.required],
       address2: ['', Validators.required],
-      zipcode: ['', Validators.required],
+      zipcode: ['', [Validators.required, Validators.minLength(6)]],
       pickupslot: ['', Validators.required],
       pickupTime: ['', [Validators.required, Validators.min(9), Validators.max(18)]],
     });
