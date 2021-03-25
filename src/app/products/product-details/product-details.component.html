@@ -1,0 +1,21 @@
+<section class="container product-detail mt-5 mb-5">
+  <div class="row">
+    <div class="col-md-6">
+      <img src="{{ product?.imagePath | async }}" class="product-detail-img" />
+    </div>
+    <div class="col-md-6">
+      <h1 class="product-name">{{ product?.name }}</h1>
+      <h6 class="product-category">{{ product?.category.name }}</h6>
+      <div class="m-4"></div>
+      <h6 class="font-weight-bold">PRODUCT DETAILS</h6>
+      <div class="product-description">{{ product?.description }}</div>
+      <div class="product-cap pt-4">
+        <span>Items allowed per order: {{ product?.limit }}</span>
+      </div>
+      <div class="product-cart pt-4">
+        <button mat-raised-button class="app-primary-btn" (click)="addToCart(product)">ADD TO CART</button>
+      </div>
+    </div>
+  </div>
+</section>
+<app-loader [isLoading]="isLoading" [size]="4"></app-loader>
