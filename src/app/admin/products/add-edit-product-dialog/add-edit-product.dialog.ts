@@ -1,7 +1,3 @@
-/*
- * @author Tapan Prajapati <Tapan.Prajapati@dal.ca>
- */
-
 import { ProductModel } from '@core/model/product.model';
 import { AdminProductService } from './../../services/admin-product.service';
 import { Component, OnInit, OnDestroy, Inject } from '@angular/core';

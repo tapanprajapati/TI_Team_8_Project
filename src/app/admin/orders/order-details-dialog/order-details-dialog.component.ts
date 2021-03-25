@@ -1,7 +1,3 @@
-/*
- * @author Tapan Prajapati <Tapan.Prajapati@dal.ca>
- */
-
 import { Component, OnInit, OnDestroy, Inject } from '@angular/core';
 import { AdminOrderService } from '../../services/admin-order.service';
 import { GlobalErrorService } from '@app/@core/services/global-error.service';

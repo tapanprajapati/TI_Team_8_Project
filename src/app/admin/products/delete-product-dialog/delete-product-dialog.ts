@@ -1,7 +1,3 @@
-/*
- * @author Tapan Prajapati <Tapan.Prajapati@dal.ca>
- */
-
 import { ProductModel } from '@core/model/product.model';
 import { Component, OnInit, OnDestroy, Inject } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogConfig } from '@angular/material/dialog';

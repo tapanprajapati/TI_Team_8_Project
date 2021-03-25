@@ -1,7 +1,3 @@
-/*
- * @author Tapan Prajapati <Tapan.Prajapati@dal.ca>
- */
-
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatDialogWrapperComponent } from '@shared/mat-dialog-wrapper/mat-dialog-wrapper.component';
 import { ProductModel } from '@core/model/product.model';
