@@ -1,1 +1,66 @@
-<h1>orders works</h1>
+<section class="container mt-5 mb-5">
+  <h1>Order Details</h1>
+  <hr />
+  <div class="row">
+    <div class="col-md-5">
+      <h6 class="font-weight-bold">Order #</h6>
+      <small>{{ order?.orderId }}</small>
+      <h6 class="font-weight-bold">Ordered on</h6>
+      <small>{{ order?.OrderDate | date }}</small>
+      <h6 class="font-weight-bold">Delivery Date</h6>
+      <small>{{ order?.DeliveredDate | date }}</small>
+      <h6 class="font-weight-bold">Pickup Slot</h6>
+      <small>{{ order?.PickUpSlot | date: 'MMM d, y, h:mm:ss a' }}</small>
+    </div>
+    <div class="col-md-7">
+      <h6 class="font-weight-bold">Status</h6>
+      <ul id="progressbar">
+        <li [ngClass]="{ 'step0 active-reject': order?.status == 'rejected', 'step0 active': true }" id="step1">
+          PLACED
+        </li>
+        <li [ngClass]="{ 'step0 active-reject': order?.status == 'rejected', 'step0 active': true }" id="step2">
+          PROCESSING
+        </li>
+        <li
+          [ngClass]="{
+            'step0 active text-center': order?.status == 'ready' || order?.status == 'delivered',
+            'step0 text-center': order?.status == 'PENDING' || true
+          }"
+          id="step3"
+        >
+          READY
+        </li>
+        <li
+          [ngClass]="{ 'step0 active text-right': order?.status == 'delivered', 'step0 text-right': true }"
+          id="step4"
+        >
+          RECEIVED
+        </li>
+      </ul>
+    </div>
+  </div>
+  <hr />
+  <div class="row d-flex">
+    <div class="col-md-7">
+      <h6 class="mb-4 font-weight-bold">Items</h6>
+      <div class="card mat-elevation-z2 mb-4 flex-row" *ngFor="let orderItem of order?.item">
+        <img class="order-item-img" src="{{ orderItem?.imagePath | async }}" alt="product image" />
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-6">
+              <div>{{ orderItem.name }}</div>
+              <small>{{ orderItem?.CategoryName }}</small>
+            </div>
+            <div class="col-md-6">
+              <div>Quantity</div>
+              <small>{{ orderItem?.quantity }}</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-5">
+      <a class="btn btn-default app-primary-btn mb-4 w-100" routerLink="/orders">BACK TO ORDERS</a>
+    </div>
+  </div>
+</section>
