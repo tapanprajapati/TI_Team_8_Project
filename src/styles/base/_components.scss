@@ -1,0 +1,20 @@
+@import "base/colors";
+@import "abstract/placeholders";
+
+// stylelint-disable declaration-no-important
+.app-primary-btn {
+  background-color: $primary-btn-blue !important;
+  color: $white !important;
+}
+
+.app-danger-btn {
+  background-color: #ff0038 !important;
+  color: $white !important;
+}
+
+.app-link {
+  @extend %app-link;
+  &:hover {
+    color: $primary-text-blue;
+  }
+}

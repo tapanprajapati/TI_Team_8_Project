@@ -1,0 +1,45 @@
+@import "base/typography";
+@import "abstract/placeholders";
+@import "base/colors";
+
+:host {
+  min-height: 100vh;
+}
+.grid {
+  display: grid;
+  grid-auto-columns: max-content;
+  grid-auto-flow: dense;
+  grid-auto-rows: minmax(250px, auto);
+  grid-gap: 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(250px, auto));
+}
+
+.mat-card img,
+.no-results-img {
+  @extend %app-img;
+
+  min-height: 250px;
+  display: block;
+}
+.no-results {
+  &-text {
+    // stylelint-disable-next-line declaration-no-important
+    font-family: $font-montserrat-black !important;
+  }
+}
+.reset-link {
+  @extend %app-link;
+}
+.clear-all {
+  font-size: 0.7rem;
+  background-color: $action-btn-orange;
+  padding: 0.5rem;
+  color: $white;
+  &:hover {
+    color: $white;
+    background-color: $action-btn-hover-orange;
+  }
+}
+.item-search {
+  min-width: 50%;
+}

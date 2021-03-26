@@ -1,0 +1,45 @@
+@import "base/typography";
+@import "base/colors";
+
+:host {
+  position: fixed;
+  width: 100%;
+  z-index: 300;
+}
+.app {
+  &-logo {
+    cursor: pointer;
+  }
+  &-icon {
+    font-size: 2rem;
+  }
+}
+.mat-toolbar .app-heading {
+  // stylelint-disable-next-line declaration-no-important
+  font-family: $font-montserrat-black !important;
+}
+
+// Mobile Menu
+.mat-sidenav-container.opened {
+  position: fixed;
+  height: 100%;
+  min-height: 100%;
+  width: 100%;
+  min-width: 100%;
+  visibility: hidden;
+}
+.mat-sidenav-container.mat-drawer-container-has-open.opened {
+  visibility: visible;
+}
+.mat-sidenav {
+  min-width: 250px;
+  width: 100%;
+  max-width: 100%;
+}
+.mat-list-item {
+  text-decoration: none;
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.05);
+  }
+}

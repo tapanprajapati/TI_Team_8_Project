@@ -1,0 +1,8 @@
+@import "base/colors";
+@import "abstract/placeholders";
+
+.app-signup-img {
+  @extend %app-img;
+
+  height: 100%;
+}
