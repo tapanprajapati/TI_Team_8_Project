@@ -1,0 +1,20 @@
+@import "base/typography";
+
+.product-detail {
+  &-img {
+    width: 100%;
+    min-height: 250px;
+    display: block;
+    background-color: #e5e5e5;
+    object-fit: cover;
+  }
+}
+.product {
+  &-name {
+    // stylelint-disable-next-line declaration-no-important
+    font-family: $font-montserrat-black !important;
+  }
+  &-description {
+    font-size: 0.8rem;
+  }
+}

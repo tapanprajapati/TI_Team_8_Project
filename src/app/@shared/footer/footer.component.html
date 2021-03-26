@@ -1,0 +1,43 @@
+<footer>
+  <div class="container-fluid">
+    <div class="row pt-3">
+      <div class="col-md-12 p-2 f-primary-nav">
+        <ul class="nav flex-md-row justify-content-center align-content-center flex-column">
+          <li class="nav-item" *ngFor="let item of primaryNavItems">
+            <a class="nav-link text-center" [routerLink]="item.routeLink">{{ item.name }}</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-12 p-2 f-social-nav">
+        <ul class="nav flex-md-row justify-content-center align-content-center">
+          <li class="nav-item" *ngFor="let item of socialNavItems">
+            <a class="nav-link text-center" target="_blank" href="{{ item.routeLink }}"
+              ><fa-icon [icon]="item.iconName"></fa-icon
+            ></a>
+          </li>
+        </ul>
+      </div>
+      <div
+        class="ternary-nav col-md-12 p-2 d-flex justify-content-between flex-md-row justify-content-center align-content-center flex-column"
+      >
+        <h4
+          class="text-center text-white copyright d-flex align-items-center m-0 justify-content-md-start justify-content-center"
+        >
+          Copyright © 2020
+        </h4>
+        <ul class="nav flex-md-row justify-content-center align-content-center flex-column">
+          <li class="nav-item" *ngFor="let item of ternaryNavItems">
+            <a class="nav-link text-center" [routerLink]="item.routeLink">{{ item.name }}</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!--
+  REF: Social media references:
+  Twitter - https://twitter.com/DalStudentUnion/
+  Facebook - https://www.facebook.com/dalstudentunion/
+  Instagram - https://www.instagram.com/dalstudentunion/
+-->
