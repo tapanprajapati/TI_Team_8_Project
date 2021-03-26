@@ -1,0 +1,14 @@
+@import "base/colors";
+
+%app-link {
+  cursor: pointer;
+  color: $primary-text-blue;
+  font-weight: bold;
+}
+
+%app-img {
+  width: 100%;
+  object-fit: cover;
+  background-color: $img-background-color;
+  // REF: https://css-tricks.com/almanac/properties/o/object-fit/
+}
