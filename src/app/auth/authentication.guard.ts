@@ -1,24 +1,21 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnDestroy } from '@angular/core';
 import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import { AuthenticationService } from '@app/auth/authentication.service';
 
-import { Logger } from '@core';
-import { CredentialsService } from './credentials.service';
+import { Logger, untilDestroyed } from '@core';
 
 const log = new Logger('AuthenticationGuard');
 
 @Injectable({
   providedIn: 'root',
 })
-export class AuthenticationGuard implements CanActivate {
-  constructor(private router: Router, private credentialsService: CredentialsService) {}
+export class AuthenticationGuard implements CanActivate, OnDestroy {
+  private _isLoggedIn: boolean;
+  constructor(private router: Router, private authenticationService: AuthenticationService) {}
 
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-    if (this.credentialsService.isAuthenticated()) {
-      return true;
-    }
-
-    log.debug('Not authenticated, redirecting and adding redirect url...');
-    this.router.navigate(['/login'], { queryParams: { redirect: state.url }, replaceUrl: true });
-    return false;
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+    return this.authenticationService.appAuthAndRoleChecker(state);
   }
+
+  ngOnDestroy() {}
 }
