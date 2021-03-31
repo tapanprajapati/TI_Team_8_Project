@@ -1,3 +1,7 @@
+/**
+ * @author Malav Jani <ml805403@dal.ca>
+ *
+ */
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MaterialModule } from '@app/material.module';

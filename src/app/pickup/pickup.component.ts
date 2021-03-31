@@ -46,6 +46,7 @@ export class PickupComponent implements OnInit {
 
   ngOnInit(): void {
     this._initializeDataGrid();
+
     this._createPickupForm();
   }
 
@@ -129,7 +130,7 @@ export class PickupComponent implements OnInit {
       name: [''],
       address1: ['', Validators.required],
       address2: ['', Validators.required],
-      zipcode: ['', [Validators.required, Validators.minLength(6)]],
+      zipcode: ['', Validators.required],
       pickupslot: ['', Validators.required],
       pickupTime: ['', [Validators.required, Validators.min(9), Validators.max(18)]],
     });

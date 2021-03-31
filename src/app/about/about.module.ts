@@ -6,9 +6,11 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule } from '@app/material.module';
 import { AboutRoutingModule } from './about-routing.module';
 import { AboutComponent } from './about.component';
+import { OurTeamComponent } from './our-team/our-team.component';
+import { VolunteerComponent } from './volunteer/volunteer.component';
 
 @NgModule({
   imports: [CommonModule, TranslateModule, FlexLayoutModule, MaterialModule, AboutRoutingModule],
-  declarations: [AboutComponent],
+  declarations: [AboutComponent, VolunteerComponent, OurTeamComponent],
 })
 export class AboutModule {}

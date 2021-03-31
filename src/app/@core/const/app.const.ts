@@ -1,4 +1,4 @@
-const APP_NAME = 'FoodCare';
+const APP_NAME = 'FoodCarek';
 
 const APP_TITLES = {
   home: `Home - ${APP_NAME}`,

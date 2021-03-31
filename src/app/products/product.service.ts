@@ -1,3 +1,8 @@
+/**
+ * @author Parth Parmar <parth.parmar@default.ca>
+ *
+ */
+
 import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { Injectable } from '@angular/core';

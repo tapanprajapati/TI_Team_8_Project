@@ -1,3 +1,6 @@
+/**
+ * @author Samkit Shah <samkit@dal.ca>
+ */
 import { UserModel } from './../@core/model/user.model';
 import { RoleModel } from './../@core/model/role.model';
 import { SignupService } from './signup.service';
@@ -33,6 +36,8 @@ export class SignUpComponent implements OnInit, OnDestroy {
     this.loadRoles();
   }
   ngOnDestroy() {}
+
+  // This function will be called when the form will be submitted.
   signup() {
     try {
       if (this.signupForm.valid) {
@@ -87,7 +92,6 @@ export class SignUpComponent implements OnInit, OnDestroy {
   get confirm_password() {
     return this.signupForm.controls.confirm_password;
   }
-
   private _createSignupForm() {
     this.signupForm = this.formBuilder.group(
       {

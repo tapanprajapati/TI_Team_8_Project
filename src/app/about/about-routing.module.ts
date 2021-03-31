@@ -1,12 +1,16 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { marker } from '@biesbjerg/ngx-translate-extract-marker';
+
+import { APP_TITLES } from '@core/const/app.const';
 
 import { AboutComponent } from './about.component';
+import { OurTeamComponent } from './our-team/our-team.component';
+import { VolunteerComponent } from './volunteer/volunteer.component';
 
 const routes: Routes = [
-  // Module is lazy loaded, see app-routing.module.ts
-  { path: '', component: AboutComponent, data: { title: marker('About') } },
+  { path: '', component: AboutComponent, data: { title: APP_TITLES?.about } },
+  { path: 'our-team', component: OurTeamComponent, data: { title: APP_TITLES?.our_team } },
+  { path: 'join', component: VolunteerComponent, data: { title: APP_TITLES?.volunteer } },
 ];
 
 @NgModule({

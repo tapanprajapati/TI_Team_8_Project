@@ -1,3 +1,7 @@
+/**
+ * @author Parth Parmar <parth.parmar@default.ca>
+ *
+ */
 import { APP_TITLES } from '@core/const/app.const';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';

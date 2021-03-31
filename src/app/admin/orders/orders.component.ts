@@ -1,3 +1,7 @@
+/*
+ * @author Tapan Prajapati <Tapan.Prajapati@dal.ca>
+ */
+
 import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';

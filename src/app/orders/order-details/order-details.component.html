@@ -1,3 +1,7 @@
+<!-- /**
+ * @author Malav Jani <ml805403@dal.ca>
+ *
+ */ -->
 <section class="container mt-5 mb-5">
   <h1>Order Details</h1>
   <hr />
@@ -14,6 +18,10 @@
     </div>
     <div class="col-md-7">
       <h6 class="font-weight-bold">Status</h6>
+      <!-- 
+            TODO: Make it dynamic,
+            unnecessary markup iterations
+        -->
       <ul id="progressbar">
         <li [ngClass]="{ 'step0 active-reject': order?.status == 'rejected', 'step0 active': true }" id="step1">
           PLACED
@@ -60,7 +68,13 @@
       </div>
     </div>
     <div class="col-md-5">
+      <img class="order-details-img" src="./../../../assets/media/app-order-details.png" alt="order details page" />
       <a class="btn btn-default app-primary-btn mb-4 w-100" routerLink="/orders">BACK TO ORDERS</a>
     </div>
   </div>
 </section>
+
+<!--
+    Order Details Image
+    REF: https://dribbble.com/shots/5616662-Moving
+-->

@@ -1,3 +1,4 @@
+import { WorkerDeleteDialogComponent } from './worker-delete-dialog/worker-delete-dialog.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -9,7 +10,7 @@ import { AdminRoutingModule } from './admin-routing.module';
 
 import { AdminComponent } from './admin.component';
 import { AdminOrdersComponent } from './orders/orders.component';
-import { AdminDonationsComponent } from './donations/donations.component';
+import { AdminWorkersComponent } from './workers/workers.component';
 import { AdminProductsComponent } from './products/products.component';
 
 import { AdminOrderService } from './services/admin-order.service';
@@ -33,7 +34,9 @@ import { AdminDeleteProductDialog } from './products/delete-product-dialog/delet
     AdminComponent,
     AdminOrdersComponent,
     AdminProductsComponent,
-    AdminDonationsComponent,
+    AdminWorkersComponent,
+    WorkerDeleteDialogComponent,
+    AdminOrderDetailsDialogComponent,
     AdminAddEditProductDialog,
     AdminDeleteProductDialog,
   ],

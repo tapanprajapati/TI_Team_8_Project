@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { AdminComponent } from './admin.component';
 import { AdminOrdersComponent } from './orders/orders.component';
-import { AdminDonationsComponent } from './donations/donations.component';
+import { AdminWorkersComponent } from './workers/workers.component';
 import { AdminProductsComponent } from './products/products.component';
 
 const routes: Routes = [
@@ -14,7 +14,7 @@ const routes: Routes = [
       { path: '', redirectTo: 'orders', pathMatch: 'full' },
       { path: 'orders', component: AdminOrdersComponent },
       { path: 'products', component: AdminProductsComponent },
-      { path: 'donations', component: AdminDonationsComponent },
+      { path: 'workers', component: AdminWorkersComponent },
     ],
   },
 ];

@@ -1,3 +1,7 @@
+/**
+ * @author Malav Jani <ml805403@dal.ca>
+ *
+ */
 import { OrderModel } from './../@core/model/order.model';
 import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';

@@ -1,3 +1,7 @@
+/**
+ * @author Parth Parmar <parth.parmar@default.ca>
+ *
+ */
 import { Title } from '@angular/platform-browser';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';

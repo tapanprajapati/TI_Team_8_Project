@@ -1,8 +1,12 @@
+<!-- 
+  @author Tapan Prajapati <Tapan.Prajapati@dal.ca> 
+-->
+
 <div class="container-fluid mat-elevation-z8">
   <mat-tab-group mat-align-tabs="center">
     <mat-tab label="Products">
       <div class="table-responsive d-flex flex-column mt-2">
-        <button class="app-primary-btn" (click)="openAddDialog()" style="margin: auto" mat-button>
+        <button class="app-primary-btn" (click)="openAddDialog()" style="margin: auto;" mat-button>
           Add New Product
         </button>
         <table mat-table [dataSource]="dataSource" matSort class="w-100">
@@ -65,7 +69,7 @@
             <mat-form-field hidden>
               <input matInput type="number" [formControl]="id" />
             </mat-form-field>
-            <mat-form-field style="margin-right: 20px">
+            <mat-form-field style="margin-right: 20px;">
               <input
                 matInput
                 type="text"
@@ -74,12 +78,14 @@
                 [formControl]="name"
                 required
               />
-              <mat-error *ngIf="name.hasError('required')"> Please Enter Category Name </mat-error>
+              <mat-error *ngIf="name.hasError('required')">
+                Please Enter Category Name
+              </mat-error>
             </mat-form-field>
             <button
               class="app-primary-btn"
               (click)="updateCategory()"
-              style="margin: auto"
+              style="margin: auto;"
               [disabled]="!CategoryFormGroup.valid"
               mat-button
             >
@@ -88,7 +94,7 @@
             <button
               class="app-primary-btn"
               (click)="resetForm()"
-              style="margin: auto"
+              style="margin: auto;"
               [hidden]="buttonName == 'Add'"
               mat-button
             >
