@@ -1,0 +1,153 @@
+<section class="container-fluid signup-container">
+  <div class="row justify-content-center">
+    <div fxHide.lt-md class="col-md-6">
+      <div *ngIf="_Products.length === 0" fxHide.lt-md class="col-md-6">
+        <picture>
+          <img class="app-signup-img" alt="signup page image" src="./../../assets/media/donate.png" />
+        </picture>
+      </div>
+      <div *ngIf="_Products.length != 0" class="table-responsive d-flex flex-column mt-2">
+        <mat-card-header class="p-4">
+          <mat-card-title>{{ 'List Of Products' | uppercase }}</mat-card-title>
+        </mat-card-header>
+        <mat-divider></mat-divider>
+
+        <table mat-table [dataSource]="dataSource" matSort class="w-100">
+          <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+            <td mat-cell *matCellDef="let product">
+              {{ product.productName }}
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="category">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Category</th>
+            <td mat-cell *matCellDef="let product">
+              {{ product.category }}
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="quantity">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Total</th>
+            <td mat-cell *matCellDef="let product">
+              {{ product.quantity }}
+            </td>
+          </ng-container>
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+        </table>
+        <mat-paginator #productsPaginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+      </div>
+    </div>
+    <div class="col-md-6 col-sm-12 d-flex flex-column justify-content-center">
+      <mat-card class="signup-card mt-4 mb-4 mat-elevation-z16">
+        <mat-card-header class="p-4">
+          <mat-card-title>{{ 'Donate Now' | uppercase }}</mat-card-title>
+        </mat-card-header>
+        <mat-divider></mat-divider>
+        <mat-card-content class="p-4 pt-4 pb-4">
+          <form class="col-lg-12 col-md-12 app-form" autocomplete="off" [formGroup]="pickupForm" (ngSubmit)="pickup()">
+            <mat-form-field class="w-100">
+              <mat-label>Name</mat-label>
+              <input matInput type="text" placeholder="Enter Name" [formControl]="name" autocomplete="off" />
+              <mat-error *ngIf="name.hasError('required')">Please enter your name.</mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="w-100">
+              <mat-label>Address 1</mat-label>
+              <input matInput type="text" placeholder="Enter Address 1" [formControl]="address1" autocomplete="off" />
+
+              <mat-error *ngIf="address1.hasError('required')">Please enter your Address.</mat-error>
+            </mat-form-field>
+            <mat-form-field class="w-100">
+              <mat-label>Address 2</mat-label>
+              <input matInput type="text" placeholder="Enter Address 2" [formControl]="address2" autocomplete="off" />
+            </mat-form-field>
+            <div class="row">
+              <div class="col-md-3">
+                <mat-form-field class="w-100">
+                  <mat-label>Zip Code</mat-label>
+                  <input
+                    matInput
+                    type="text"
+                    placeholder="Enter ZipCode"
+                    maxlength="6"
+                    [formControl]="zipcode"
+                    autocomplete="off"
+                  />
+                </mat-form-field>
+              </div>
+              <div class="col-md-9">
+                <mat-form-field class="w-100">
+                  <mat-label>Phone number</mat-label>
+                  <input
+                    matInput
+                    type="text"
+                    placeholder="Enter Phone Number"
+                    [formControl]="phone"
+                    autocomplete="off"
+                  />
+                  <mat-error *ngIf="phone.hasError('required') && !phone.hasError('pattern')"
+                    >Phone Number is required.</mat-error
+                  >
+                  <mat-error *ngIf="!phone.hasError('required') && phone.hasError('pattern')"
+                    >Enter valid Phone Number</mat-error
+                  >
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <mat-form-field class="w-100">
+                  <mat-label>Choose a pickup date</mat-label>
+                  <input
+                    matInput
+                    type="date"
+                    placeholder="Choose pickup date"
+                    min="{{ currentDate | date: 'yyyy-MM-dd' }}"
+                    [formControl]="pickupslot"
+                    required
+                  />
+                  <mat-error *ngIf="pickupslot.hasError('required') && !pickupslot.hasError('min')">
+                    Please choose a date.
+                  </mat-error>
+                  <mat-error *ngIf="!pickupslot.hasError('required') && pickupslot.hasError('min')">
+                    Please choose future date.
+                  </mat-error>
+                </mat-form-field>
+              </div>
+              <div class="col-md-6">
+                <mat-form-field class="w-100">
+                  <mat-label>Choose a pickup time</mat-label>
+                  <input matInput type="time" placeholder="Choose a pickup time" [formControl]="pickupTime" required />
+                  <mat-error
+                    *ngIf="
+                      pickupTime.hasError('required') && !pickupTime.hasError('min') && !pickupTime.hasError('max')
+                    "
+                  >
+                    Please choose a pickup time.
+                  </mat-error>
+                  <mat-error
+                    *ngIf="
+                      (!pickupTime.hasError('required') && pickupTime.hasError('min')) || pickupTime.hasError('min')
+                    "
+                  >
+                    Please select time between 9AM to 6PM.
+                  </mat-error>
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="w-100 d-flex pt-4">
+              <button class="app-primary-btn" (click)="openAddDialog()" type="button" style="margin: auto" mat-button>
+                Add New Product
+              </button>
+            </div>
+            <div class="w-100 d-flex pt-4">
+              <button class="app-primary-btn w-100" type="submit" mat-button>Donate Now</button>
+            </div>
+          </form>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</section>
