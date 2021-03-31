@@ -4,11 +4,11 @@ import { TranslateModule } from '@ngx-translate/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { MaterialModule } from '@app/material.module';
-import { LanguageSelectorComponent } from './language-selector.component';
+import { SelectLanguageComponent } from './select-language/select-language.component';
 
 @NgModule({
   imports: [CommonModule, TranslateModule, FlexLayoutModule, MaterialModule],
-  declarations: [LanguageSelectorComponent],
-  exports: [LanguageSelectorComponent],
+  declarations: [SelectLanguageComponent],
+  exports: [SelectLanguageComponent],
 })
 export class I18nModule {}
