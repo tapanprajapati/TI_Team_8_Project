@@ -1,8 +1,3 @@
-/**
- * @author Parth Parmar <parth.parmar@dal.ca>
- *
- * Database configuration object
- */
 module.exports = {
   host: 'halifaxfoodbank.c1wjrmwajtig.us-east-2.rds.amazonaws.com',
   user: 'admin',

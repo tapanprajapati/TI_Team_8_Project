@@ -1,4 +1,3 @@
-
 function checkoutController(service) {
   this.service = service;
   this.createOrder = this.createOrder.bind(this);

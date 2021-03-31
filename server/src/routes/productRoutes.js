@@ -1,8 +1,3 @@
-/**
- * @author Parth Parmar <parth.parmar@dal.ca>
- * @author Tapan Prajapati <Tapan.Prajapati@dal.ca>
- *
- */
 const express = require('express');
 const router = express.Router();
 const { validate } = require('express-validation');

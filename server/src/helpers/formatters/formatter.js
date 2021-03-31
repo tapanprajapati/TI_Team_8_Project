@@ -1,10 +1,3 @@
-/**
- * @author Parth Parmar <parth.parmar@dal.ca>
- *
- * Formatting the response objects for the front-end models
- *
- */
-
 const formatProducts = (products) => {
   return products.map((product) => {
     return {
