@@ -1,10 +1,3 @@
-/**
- * @author Parth Parmar <parth.parmar@dal.ca>
- * @author Tapan Prajapati <Tapan.Prajapati@dal.ca>
- *
- * Controller class handling product resource and delegating business work to the service layer
- * @param {instance of a ProductService class} service
- */
 function ProductController(service) {
   this.service = service;
   this.getAll = this.getAll.bind(this);

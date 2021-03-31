@@ -1,8 +1,3 @@
-/**
- * @author Parth Parmar <parth.parmar@dal.ca>
- * Inspired by: https://codeburst.io/node-js-mysql-and-promises-4c3be599909b
- * Wrapper around `mysql` package to return promise.
- */
 const mysql = require('mysql');
 
 function Database(config) {

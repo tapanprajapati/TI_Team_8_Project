@@ -1,6 +1,3 @@
-/**
- * @author Samkit Shah <samkit@dal.ca>
- */
 const mysql = require('mysql');
 const Database = require('config/database');
 const queries = require('app-data/queries');
@@ -90,7 +87,7 @@ CheckoutService.prototype.createOrder = async function createOrder(data, banner)
       },
     });
     let mailOptions = {
-      from: 'FoodCare', // sender address
+      from: 'SAMKIT SHAH', // sender address
       to: email, // list of receivers
       subject: 'Order Placed Successfully.', // Subject line
       text: 'Order Placed Successfully.', // plain text body
@@ -200,7 +197,7 @@ CheckoutService.prototype.createOrder = async function createOrder(data, banner)
                           <table>
                               <tr>
                                   <td class="title">
-                                      <img src="https://i.ibb.co/J290Tds/logo.jpg" style="width:100%; max-width:300px;">
+                                      <img src="https://i.ibb.co/HK03pnq/logo.jpg" style="width:100%; max-width:300px;">
                                   </td>
                                   
                                   <td>

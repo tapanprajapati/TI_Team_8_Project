@@ -1,8 +1,3 @@
-/**
- * @author Parth Parmar <parth.parmar@dal.ca>
- *
- */
-
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
