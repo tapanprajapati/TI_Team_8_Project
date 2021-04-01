@@ -137,11 +137,6 @@
               >
                 Please choose a pickup time.
               </mat-error>
-              <mat-error
-                *ngIf="(!pickupTime.hasError('required') && pickupTime.hasError('min')) || pickupTime.hasError('min')"
-              >
-                Please select time between 9AM to 6PM.
-              </mat-error>
             </mat-form-field>
             <div class="w-100 d-flex pt-4">
               <button class="app-primary-btn w-100" [disabled]="!checkoutForm.valid" type="submit" mat-button>
