@@ -125,7 +125,7 @@ export class CheckoutComponent implements OnInit, OnDestroy {
       lastName: ['', Validators.required],
       contactNumber: ['', [Validators.required, Validators.minLength(10)]],
       pickupDate: ['', Validators.required],
-      pickupTime: ['', [Validators.required, Validators.min(9), Validators.max(18)]],
+      pickupTime: ['', [Validators.required]],
     });
   }
 
