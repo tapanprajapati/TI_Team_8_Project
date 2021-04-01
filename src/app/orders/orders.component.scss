@@ -1,0 +1,15 @@
+// /**
+//  * @author Malav Jani <ml805403@dal.ca>
+//  *
+//  */
+@import "abstract/placeholders";
+
+.view-order-link {
+  @extend %app-link;
+}
+
+.app-orders-img {
+  @extend %app-img;
+
+  height: 100%;
+}

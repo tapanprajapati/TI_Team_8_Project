@@ -1,0 +1,22 @@
+@import "abstract/placeholders";
+
+.cart-item-img {
+  @extend %app-img;
+
+  max-width: 250px;
+  min-height: 150px;
+  margin: auto;
+}
+
+.cart-item-border {
+  border: 0;
+  border-bottom: 1px solid #eee;
+}
+
+.cart-remove {
+  font-size: 0.8rem;
+}
+
+.cart-empty {
+  min-height: 50vh;
+}

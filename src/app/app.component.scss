@@ -1,4 +1,16 @@
+@import "base/typography";
+@import "base/variables";
+
 :host {
   display: flex;
-  flex: 1;
+  flex-direction: column;
+  min-height: 100vh;
+}
+main {
+  padding: 0 16px;
+  flex: 1 0 auto;
+  margin-top: $header-height;
+}
+app-footer {
+  flex-shrink: 0;
 }

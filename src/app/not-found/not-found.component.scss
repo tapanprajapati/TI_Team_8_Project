@@ -1,0 +1,8 @@
+@import "abstract/placeholders";
+
+.not-found-img {
+  @extend %app-img;
+}
+.go-home-link {
+  @extend %app-link;
+}

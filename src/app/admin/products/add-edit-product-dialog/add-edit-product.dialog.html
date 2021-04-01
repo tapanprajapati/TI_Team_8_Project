@@ -1,0 +1,89 @@
+<!-- 
+  @author Tapan Prajapati <Tapan.Prajapati@dal.ca> 
+-->
+<section class="container product-detail mt-5 mb-5">
+  <div class="row">
+    <div class="col-md-6">
+      <img src="{{ imageUrl }}" class="product-detail-img" />
+      <input hidden #imageInput type="file" accept="image/*" (change)="preview($event)" />
+
+      <div class="row mt-3 mb-3" style="width: max-content; margin: auto;">
+        <button class="app-primary-btn m-1" (click)="imageInput.click()" mat-button>Select</button>
+        <button
+          class="app-primary-btn m-1"
+          [hidden]="data==null"
+          (click)="imageFile=null; imageUrl=''; saveButtonStatus=true;"
+          mat-button
+        >
+          Remove
+        </button>
+        <button
+          class="app-primary-btn m-1"
+          (click)="saveImage(product.id)"
+          [hidden]="data==null"
+          [disabled]="!saveButtonStatus"
+          mat-button
+        >
+          Save
+        </button>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <form class="col-lg-9 col-md-12" [formGroup]="productFormGroup">
+        <mat-form-field>
+          <input matInput type="text" placeholder="Name" autocomplete="off" [formControl]="name" required />
+          <mat-error *ngIf="name.hasError('required')">
+            Please Enter Product Name
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Category </mat-label>
+          <mat-select [formControl]="category">
+            <mat-option *ngFor="let category of categories" [value]="category.id">
+              {{ category.name }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="w-100 mt-2 mb-2">
+          <textarea
+            matInput
+            rows="10"
+            [formControl]="description"
+            placeholder="Description"
+            autocomplete="off"
+            required
+          ></textarea>
+          <mat-error *ngIf="description.hasError('required')">
+            Please Enter Product Description
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput type="number" [formControl]="quantity" placeholder="Quantity" autocomplete="off" required />
+          <mat-error *ngIf="quantity.hasError('required')">
+            Please Enter Product Quantity
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field hidden>
+          <input matInput [formControl]="limit" hidden />
+        </mat-form-field>
+      </form>
+    </div>
+    <div class="col-md-6"></div>
+    <div class="col-md-6">
+      <button
+        class="app-primary-btn"
+        [disabled]="!productFormGroup.valid"
+        style="margin: auto;"
+        (click)="save()"
+        mat-button
+      >
+        {{ buttonName }}
+      </button>
+      <button class="app-primary-btn" style="margin: auto;" (click)="close()" mat-button>Close</button>
+    </div>
+  </div>
+</section>
+<app-loader [isLoading]="isLoading" [size]="4"></app-loader>

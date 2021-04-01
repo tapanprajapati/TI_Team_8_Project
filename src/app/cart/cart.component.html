@@ -1,0 +1,53 @@
+<!-- 
+ @author Samkit Shah <samkit@dal.ca>
+ -->
+<section class="shopping-cart container mt-5 mb-5">
+  <h1 *ngIf="cartItems?.length != 0">Shopping Cart</h1>
+  <div class="row mt-4">
+    <div class="card col-md-8 border-0">
+      <div
+        class="d-flex mb-4 pb-4 cart-item-border"
+        *ngFor="let cartItem of cartItems"
+        fxLayout.lt-md="column"
+        fxLayout.gt-md="row"
+      >
+        <img class="cart-item-img" src="{{ cartItem?.imagePath | async }}" alt="cart item image" />
+        <div class="card-body">
+          <div fxLayout="row" fxLayoutAlign="space-between center" class="h-100">
+            <div>
+              <div class="font-weight-bold">{{ cartItem?.name }}</div>
+              <small>{{ cartItem?.category?.name }}</small>
+            </div>
+            <div>
+              <div>Quantity</div>
+              <small>{{ cartItem?.limit }}</small>
+            </div>
+            <div>
+              <button mat-button class="app-danger-btn cart-remove" (click)="deleteProductFromCart(cartItem)">
+                Remove
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3"></div>
+  </div>
+  <div class="row">
+    <div
+      class="d-flex flex-column col-md-12 justify-content-center align-items-center cart-empty"
+      *ngIf="cartItems?.length == 0"
+    >
+      <h4 class="font-weight-bold">Your shopping cart is empty!</h4>
+      <div class="font-weight-light">There is nothing in your cart. Let's add some items.</div>
+      <button mat-button class="app-primary-btn mt-3" [routerLink]="['/products']">Products</button>
+    </div>
+  </div>
+  <mat-divider></mat-divider>
+  <div class="row d-flex justify-content-between mt-3 pl-5 pr-5">
+    <button mat-button class="app-link" [routerLink]="['/products']">
+      <fa-icon [icon]="faLongArrowAltLeft"> </fa-icon> Continue Shopping
+    </button>
+    <button mat-button class="app-primary-btn" [routerLink]="['/checkout']">Checkout</button>
+  </div>
+</section>

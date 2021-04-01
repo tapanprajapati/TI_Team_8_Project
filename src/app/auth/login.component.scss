@@ -1,28 +1,16 @@
-@import "src/theme/theme-variables";
+@import "base/colors";
+@import "abstract/placeholders";
 
 :host {
   display: flex;
-  flex: 1;
-  background-color: #f5f5f5;
 }
-
-.inline-loader {
-  display: inline-block;
+.app-login-img {
+  @extend %app-img;
 }
-
-.version {
-  margin: 0;
+.login-card {
+  min-height: 60%;
 }
-
-.login-container,
-.mat-form-field {
-  width: 100%;
-}
-
-.login-fields > :not(:last-child) {
-  margin-bottom: 8px;
-}
-
-.login-error {
-  color: mat-color($app-warn);
+.forgot-pwd-link,
+.signup-link {
+  @extend %app-link;
 }

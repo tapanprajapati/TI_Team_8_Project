@@ -25,3 +25,13 @@
 
 // Theme customization
 @import "theme/theme";
+
+@import "styles/base/typography";
+@import "styles/base/colors";
+@import "styles/base/variables";
+@import "styles/base/reset";
+@import "styles/base/utils";
+@import "styles/base/components";
+@import "styles/base/media";
+
+@import "abstract/placeholders";

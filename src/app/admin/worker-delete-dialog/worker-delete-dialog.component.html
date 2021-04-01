@@ -1,0 +1,82 @@
+<!--    -->
+
+<h1 mat-dialog-title class="text-center">Remove User</h1>
+<mat-divider class="p-2"></mat-divider>
+
+<form
+  #form="ngForm"
+  autocomplete="off"
+  (submit)="confirm(form)"
+  class="d-flex flex-column justify-content-center w-100"
+>
+  <mat-form-field class="form-group">
+    <mat-label class="form-check-mat-label">BannerId</mat-label>
+    <input matInput name="BannerId" [value]="data.BannerId" [(ngModel)]="data.BannerId" class="form-control" readonly />
+  </mat-form-field>
+
+  <mat-form-field class="form-group">
+    <mat-label class="form-check-mat-label">First Name</mat-label>
+    <input
+      matInput
+      type="string"
+      name="FirstName"
+      [value]="data.FirstName"
+      [(ngModel)]="data.FirstName"
+      class="form-control"
+      readonly
+    />
+  </mat-form-field>
+  <mat-form-field class="form-group">
+    <mat-label class="form-check-mat-label">Last Name</mat-label>
+    <input
+      matInput
+      type="string"
+      name="LastName"
+      [value]="data.LastName"
+      [(ngModel)]="data.LastName"
+      class="form-control"
+      readonly
+    />
+  </mat-form-field>
+  <mat-form-field class="form-group">
+    <mat-label class="form-check-mat-label">Email</mat-label>
+    <input
+      matInput
+      type="string"
+      name="Email"
+      [value]="data.Email"
+      [(ngModel)]="data.Email"
+      class="form-control"
+      readonly
+    />
+  </mat-form-field>
+  <mat-form-field class="form-group">
+    <mat-label class="form-check-mat-label">Role Id</mat-label>
+    <input
+      matInput
+      type="number"
+      name="RoleId"
+      [value]="data.RoleId"
+      [(ngModel)]="data.RoleId"
+      class="form-control"
+      readonly
+    />
+  </mat-form-field>
+  <mat-form-field class="form-group">
+    <mat-label class="form-check-mat-label">Role Name</mat-label>
+    <input
+      matInput
+      type="string"
+      name="RoleName"
+      [value]="data.RoleName"
+      [(ngModel)]="data.RoleName"
+      class="form-control"
+      readonly
+    />
+  </mat-form-field>
+
+  <div class="form-group text-center">
+    <button mat-raised-button class="app-primary-btn mr-2">Remove</button>
+    <button mat-raised-button [mat-dialog-close]>Close</button>
+  </div>
+</form>

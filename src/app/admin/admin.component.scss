@@ -1,0 +1,15 @@
+// stylelint-disable
+
+:host {
+  min-height: 100vh;
+}
+.admin-nav {
+  min-width: 20%;
+
+  .mat-list-item:not(.mat-accent):hover {
+    background-color: #f5f5f5;
+  }
+  .mat-list-item {
+    cursor: pointer;
+  }
+}

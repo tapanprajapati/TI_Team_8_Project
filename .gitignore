@@ -2,6 +2,7 @@
 
 # Compiled output
 /dist
+/productiongui
 /tmp
 /out-tsc
 # Only exists if Bazel was run
@@ -16,8 +17,7 @@
 /platforms
 
 # Electron
-/dist-electron
-/dist-packages
+/dist.electron
 /electron.main.js
 
 # IDEs and editors
@@ -39,10 +39,6 @@ xcuserdata/
 !.vscode/launch.json
 !.vscode/extensions.json
 
-# Maven
-/target
-/log
-
 # Misc
 /.sass-cache
 /connect.lock
@@ -53,9 +49,8 @@ yarn-error.log
 testem.log
 /typings
 /reports
-/src/translations/template.*
-/src/environments/.env.*
 
 # System Files
 .DS_Store
 Thumbs.db
+todo.md

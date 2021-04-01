@@ -1,8 +1,15 @@
+//
+
+:host {
+  position: absolute;
+  z-index: 500;
+  top: 35%;
+  left: 45%;
+}
 .mat-progress-spinner {
   display: inline-block;
   vertical-align: middle;
 }
-
 .message {
   margin-left: 0.5em;
 }
