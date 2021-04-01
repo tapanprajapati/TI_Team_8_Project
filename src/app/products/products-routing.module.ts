@@ -1,5 +1,5 @@
 /**
- * @author Parth Parmar <parth.parmar@default.ca>
+ 
  *
  */
 import { APP_TITLES } from '@core/const/app.const';

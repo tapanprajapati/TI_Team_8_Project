@@ -1,5 +1,5 @@
 /**
- * @author Parth Parmar <parth.parmar@default.ca>
+ 
  *
  */
 import { NgModule } from '@angular/core';

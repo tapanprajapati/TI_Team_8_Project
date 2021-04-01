@@ -13,11 +13,7 @@ export class SignupService {
   private _roles = [
     {
       id: 3,
-      name: 'Buyer',
-    },
-    {
-      id: 2,
-      name: 'Seller',
+      name: 'Needy',
     },
   ];
   private _matDialogConfig: MatDialogConfig = {

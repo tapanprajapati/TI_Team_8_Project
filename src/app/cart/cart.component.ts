@@ -1,5 +1,5 @@
 /**
- * @author Parth Parmar <parth.parmar@dal.ca>
+ *
  */
 import { untilDestroyed } from '@core';
 import { Component, OnInit, OnDestroy } from '@angular/core';

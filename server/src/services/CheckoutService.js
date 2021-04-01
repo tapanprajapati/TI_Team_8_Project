@@ -197,7 +197,7 @@ CheckoutService.prototype.createOrder = async function createOrder(data, banner)
                           <table>
                               <tr>
                                   <td class="title">
-                                      <img src="https://i.ibb.co/HK03pnq/logo.jpg" style="width:100%; max-width:300px;">
+                                      <img src="https://i.ibb.co/9N6hYNn/image.png" style="width:100%; max-width:300px;">
                                   </td>
                                   
                                   <td>

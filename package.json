@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "author": {
-    "name": "Parth Parmar",
-    "email": "parth.parmar@dal.ca"
+    "name": "FoodCare",
+    "email": "Foodcare@dal.ca"
   },
   "scripts": {
     "ng": "ng",

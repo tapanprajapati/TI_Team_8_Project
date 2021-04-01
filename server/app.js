@@ -1,6 +1,4 @@
 /**
- * @author Parth Parmar <parth.parmar@dal.ca>
- *
  */
 
 // shortening require paths

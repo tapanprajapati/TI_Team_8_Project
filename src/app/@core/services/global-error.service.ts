@@ -1,5 +1,5 @@
 /**
- * @author Parth Parmar <parth.parmar@dal.ca>
+ *
  *
  * Global http response error handler service
  * Inspired By: https://www.udemy.com/course/the-complete-angular-master-class/

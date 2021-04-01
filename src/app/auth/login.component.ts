@@ -1,5 +1,5 @@
 /**
- *   @author Siddharth Kapania <sid.kapania@dal.ca>
+ *
  */
 
 import { Component, OnInit, OnDestroy } from '@angular/core';

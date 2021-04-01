@@ -91,7 +91,7 @@ UserService.prototype.createUser = async function createUser(data) {
       html: `<div style="background-color: #F5F7FA; padding: 50px; min-width: 360px;">
     <div style="max-width: 600px; margin: 0 auto; padding: 60px 75px 50px; background-color: white;">
       <img style="display: block; max-width: 200px; height: auto;"
-        src="https://i.ibb.co/JjSjPRh/image.png"
+        src="https://i.ibb.co/9N6hYNn/image.png"
         alt="FoodCare Logo" />
       <h1 style="padding: 50px 0 15px; font-family: Arial, sans-serif; font-size: 36px; color: #343B4E;">Welcome to
         FoodCare</h1>

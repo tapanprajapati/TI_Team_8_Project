@@ -1,5 +1,5 @@
 /**
- * @author Parth Parmar <parth.parmar@default.ca>
+ 
  * Model for Product resource
  */
 import { CategoryModel } from '@core/model/category.model';
