@@ -1,5 +1,5 @@
 module.exports = {
-  jwtSecret: 'vidaclave',
+  jwtSecret: process.env.JWTSECRET,
   jwtDuration: '1h',
   jwtAlgorithm: 'HS256',
 };

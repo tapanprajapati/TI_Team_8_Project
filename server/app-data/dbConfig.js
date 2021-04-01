@@ -1,8 +1,8 @@
 module.exports = {
-  host: 'halifaxfoodbank.c1wjrmwajtig.us-east-2.rds.amazonaws.com',
-  user: 'admin',
-  password: 'adminuser',
-  database: 'ti_team8',
-  port: 3306,
+  host: process.env.DBHOST,
+  user: process.env.DBUSER,
+  password: process.env.DBPASSWORD,
+  database: process.env.DBNAME,
+  port: process.env.DBPORT,
   ssl: true,
 };
